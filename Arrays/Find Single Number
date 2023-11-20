@@ -1,0 +1,26 @@
+class Solution {
+    public int singleNumber(int[] nums) {
+        int singleNum = 0;
+        boolean foundDuplicate = false;
+
+        for (int i = 0; i < nums.length; i++) {
+            singleNum = nums[i];
+            foundDuplicate = false; 
+
+            for (int j = 0; j < nums.length; j++) {
+                if (i != j && singleNum == nums[j]) {
+                    
+                    foundDuplicate = true;
+                    break;
+                }
+            }
+
+            if (!foundDuplicate) {
+                
+                return singleNum;
+            }
+        }
+
+        return -1;
+    }
+}
